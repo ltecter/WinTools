@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  discount_amt: 9.99
+  valid: false
+
+two:
+  name: MyText
+  discount_amt: 9.99
+  valid: false
