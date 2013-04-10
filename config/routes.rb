@@ -1,7 +1,11 @@
 WinTools::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
+  root :to => "products#index"
+  match "products" => "products#index", :via => :get, :as => "products"
+  match "products/:id" => "products#show", :via => :get, :as => "product"
+  match "products/category/:id" => "products#products_by_category", :via => :get, :as => "products_by_category" 
   ActiveAdmin.routes(self)
-  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
