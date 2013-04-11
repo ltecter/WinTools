@@ -3,7 +3,9 @@ WinTools::Application.routes.draw do
   root :to => "products#index"
   match "products" => "products#index", :via => :get, :as => "products"
   match "products/:id" => "products#show", :via => :get, :as => "product"
-  match "products/category/:id" => "products#products_by_category", :via => :get, :as => "products_by_category" 
+  match "products/category/:id" => "products#products_by_category", :via => :get, :as => "products_by_category"
+  match "search" => "search#search", :via => :get, :as => "search"
+  match "search_results" => "search#search_results", :via => :post, :as => "search_results"
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
