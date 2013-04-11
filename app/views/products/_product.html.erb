@@ -1,11 +1,11 @@
-<div id="product">
+<div class="product">
   <p>
-    <%= image_tag product.image %>
+    <%= link_to (image_tag product.image), product %>
   </p>
   <h2>
     <%= product.name %>
   </h2>
-  <p>
+  <p class="price">
     <strong>Price:</strong>
     <%= product.price %>
   </p>

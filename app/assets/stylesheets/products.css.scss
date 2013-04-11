@@ -1,0 +1,45 @@
+.product *, .links a {
+    background: white !important;
+}
+
+.product > p > a {
+    background: white !important;
+}
+
+.product {
+    background: white !important;
+    width: 180px;
+    border: solid 2px #63AA9C;
+    padding: 10px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    min-height: 300px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
+}
+
+.product h2 {
+    margin-top: 0;
+}
+
+.product .links {
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.links a:link, .links a:visited {
+    color: #221E1D !important;
+}
+
+.links a:focus, .links a:hover {
+    color: #E9633B !important;
+}
+
+.price strong {
+    color: #E9633B !important;
+}
+
+img {    
+    height:175px;
+    margin: 0 auto;
+}
