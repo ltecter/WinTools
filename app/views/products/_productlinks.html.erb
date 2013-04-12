@@ -1,0 +1,5 @@
+<% if session[:cart].any? { |item| item[:prod_id] == (product.id.to_s) } %>
+  <%= link_to 'Remove From Cart', remove_from_cart_path(product.id) %>
+<% else %>
+  <%= link_to 'Add To Cart', add_to_cart_path(product.id) %>
+<% end %>

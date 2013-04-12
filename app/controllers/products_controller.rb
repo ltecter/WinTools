@@ -20,68 +20,47 @@ class ProductsController < ApplicationController
       format.json { render json: @product }
     end
   end
-
-  # GET /products/new
-  # GET /products/new.json
-  def new
-    @product = Product.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @product }
-    end
-  end
-
-  # GET /products/1/edit
-  def edit
-    @product = Product.find(params[:id])
-  end
-
-  # POST /products
-  # POST /products.json
-  def create
-    @product = Product.new(params[:product])
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /products/1
-  # PUT /products/1.json
-  def update
-    @product = Product.find(params[:id])
-
-    respond_to do |format|
-      if @product.update_attributes(params[:product])
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /products/1
-  # DELETE /products/1.json
-  def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to products_url }
-      format.json { head :no_content }
-    end
-  end
   
   def products_by_category
     @products = Product.where('category_id = ' + params[:id])
+  end
+  
+  def cart
+    #@total = 1
+    #session[:cart].each do |item|
+    #  cart_item = Product.find(item['prod_id'])
+    #  @cart << cart_item
+    #  cost = cart_time[:price]
+    #  @cost << cost
+    #  @total += 1
+    #end
+  end
+  
+  def add_to_cart
+    session[:cart] << {:prod_id => params[:id], :quantity => 1}
+    redirect_to root_url
+  end
+  
+  def remove_from_cart
+    session[:cart] = session[:cart].reject { |h| params[:id].include? h[:prod_id] }
+    redirect_to root_url
+  end
+  
+  def change_quantity
+    session[:cart].each do |item|
+      if item[:prod_id] = params[:id]
+        item[:quantity] = params[:quantity]
+      end
+    end
+    redirect_to root_url
+  end
+  
+  def clear_cart
+    reset_session
+    redirect_to root_url
+  end
+  
+  def checkout
+    
   end
 end

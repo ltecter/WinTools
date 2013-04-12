@@ -54,6 +54,7 @@ nav {
     border: solid 2px #63AA9C;
     background: #221E1D !important;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+    color: #EEEBE2 !important;
 }
 
 nav a {
@@ -70,7 +71,7 @@ nav a:focus, nav a:hover {
 }
 
 #search {
-    margin: 10px 0px 0px 550px;
+    margin: 10px 0px 0px 0px;
 }
 
 #query {
@@ -86,7 +87,7 @@ nav a:focus, nav a:hover {
     height: 19px;
 }
 
-#search_button {
+#search_button, #checkout_button {
     color: #E9633B;
     -webkit-border-top-right-radius: 6px;
     -webkit-border-bottom-right-radius: 6px;
@@ -102,8 +103,37 @@ nav a:focus, nav a:hover {
     border: solid 2px #63AA9C;
 }
 
+#checkout_button {
+    float: left;
+}
+
+#mini_cart form {
+    float: left;
+}
+
+#mini_cart {
+    float:left;
+    padding: 0px;
+    margin: 10px 5px 0px 250px;    
+}
+
+#mini_cart > div {
+    float: left;
+    border: solid 2px #63AA9C;
+    padding: 0px 5px 1px 5px;
+    margin-right: 4px;
+    background: #D6D4CB;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
 footer {
     margin: 0 auto;
     text-align: center;
     clear: both;
 }
+

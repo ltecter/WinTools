@@ -3,6 +3,6 @@ class SearchController < ApplicationController
     
   end
   def search_results
-    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%").order(:name)
   end
 end

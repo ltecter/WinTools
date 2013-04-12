@@ -6,6 +6,13 @@ WinTools::Application.routes.draw do
   match "products/category/:id" => "products#products_by_category", :via => :get, :as => "products_by_category"
   match "search" => "search#search", :via => :get, :as => "search"
   match "search_results" => "search#search_results", :via => :post, :as => "search_results"
+  match "cart" => "products#cart", :via => :get, :as => "cart"
+  match "add_to_cart/:id" => "products#add_to_cart", :via => :get, :as => "add_to_cart"
+  match "remove_from_cart/:id" => "products#remove_from_cart", :via => :get, :as => "remove_from_cart"
+  match "change_quantity/:id/quantity/:quantity" => "products#change_quantity", :via => :get, :as => "change_quantity"
+  match "clear_cart" => "products#clear_cart", :via => :get, :as => "clear_cart"
+  match "checkout" => "products#checkout", :via => :get, :as => "checkout"
+  
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:

@@ -13,12 +13,13 @@
 </header>
 <nav>
   <% @categories.each do |category| %>
-    <%= link_to category.name, products_by_category_path(category.id) %>
+    <%= link_to category.name, products_by_category_path(category.id) %> | 
   <% end %>
-  <%= link_to 'About Us', "/resources/About_Us" %>
+  <%= link_to 'About Us', "/resources/About_Us" %> | 
   <%= link_to 'Contact Us', "/resourece/Contact_Us" %>
 </nav>
 <body>
+  <%= render :partial => "products/cart", :locals => { :cart => @items, :cost => @cost, :total => @total, :num_items => @count } %>
   <div id="search">
     <%= render :partial => "/search/search" %>
   </div>

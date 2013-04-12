@@ -10,6 +10,7 @@
     <%= product.price %>
   </p>
   <div class="links">
+    <%= render :partial => 'products/productlinks', :locals => { :product => product } %>
     <%= link_to 'Show', product %>
   </div>    
 </div>

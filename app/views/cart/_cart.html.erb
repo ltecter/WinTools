@@ -1,0 +1,12 @@
+<div id="cart">
+  <h4>Shopping Cart</h4>
+  <% @cart.each_with_index do |item, index| %>
+    <p>
+      <%= item[:name] %> <%= @cost[index] %>
+    </p>
+  <% end %>
+  <p>
+    <strong>Total:</strong>
+    <%= @total %>
+  </p>
+</div>
