@@ -48,8 +48,8 @@ class ProductsController < ApplicationController
   
   def change_quantity
     session[:cart].each do |item|
-      if item[:prod_id] = params[:id]
-        item[:quantity] = params[:quantity]
+      if item[:prod_id] == params[:item_id]
+        item[:quantity] = params[:qty]
       end
     end
     redirect_to root_url
@@ -61,6 +61,9 @@ class ProductsController < ApplicationController
   end
   
   def checkout
-    
+    @quantity = []
+    session[:cart].each do |item|
+      @quantity << item[:quantity]
+    end
   end
 end

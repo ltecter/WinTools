@@ -1,0 +1,41 @@
+
+  <table id="shopping_cart">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td>
+          Total: <%= number_to_currency(@total) %>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% @items.each_with_index do |item, index| %>
+        <tr>
+          <td>
+            <%= link_to item[:name], item %>
+            
+          </td>
+          <td>
+            <%= form_tag(change_quantity_path) do %>
+              <%= hidden_field_tag(:item_id, @prod_id[index]) %>
+              <%= text_field_tag(:qty, nil,:placeholder => @quantity[index]) %>
+              <%= submit_tag("Change Quantity", :id => "quantity_button") %>
+            <% end %>
+          </td>
+          <td>
+            <%= number_to_currency(@cost[index]) %>
+          </td>
+          <td>
+            <%= link_to 'Remove', remove_from_cart_path(item[:id]) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
