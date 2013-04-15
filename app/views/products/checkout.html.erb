@@ -39,3 +39,7 @@
       <% end %>
     </tbody>
   </table>
+  <div id="buttons">
+    <%= button_to "Continue Shopping", root_path, :method => :get, :id => "continue_button" %>
+    <%= button_to "Checkout Now", user_credentials_path, :method => :get, :id => "checkout_now_button" %>
+  </div>

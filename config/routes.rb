@@ -12,6 +12,9 @@ WinTools::Application.routes.draw do
   match "change_quantity" => "products#change_quantity", :via => :post, :as => "change_quantity"
   match "clear_cart" => "products#clear_cart", :via => :get, :as => "clear_cart"
   match "checkout" => "products#checkout", :via => :get, :as => "checkout"
+  match "user_credentials" => "customers#user_credentials", :via => :get, :as => "user_credentials"
+  match "order" => "products#order", :via => :post, :as => "order"
+  match "confirmation" => "products#confirmation", :via => :post, :as => "confirmation"
   
   ActiveAdmin.routes(self)
 
