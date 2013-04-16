@@ -1,8 +1,7 @@
-
   <table id="shopping_cart">
     <thead>
       <tr>
-        <th></th>
+        <th>Product</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Remove</th>
@@ -10,7 +9,7 @@
     </thead>
     <tfoot>
       <tr>
-        <td>
+        <td colspan="4">
           Total: <%= number_to_currency(@total) %>
         </td>
       </tr>
@@ -26,7 +25,7 @@
             <%= form_tag(change_quantity_path) do %>
               <%= hidden_field_tag(:item_id, @prod_id[index]) %>
               <%= text_field_tag(:qty, nil,:placeholder => @quantity[index]) %>
-              <%= submit_tag("Change Quantity", :id => "quantity_button") %>
+              <%= submit_tag("Change Quantity", :class => "quantity_button") %>
             <% end %>
           </td>
           <td>
