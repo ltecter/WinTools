@@ -14,11 +14,12 @@ protected
     @cost ||= []
     @total ||= 0
     @items ||= []
-    @quantities = []
+    @quantities ||= []
     @prod_id = []
     if !session[:cart].empty?      
       session[:cart].each do |item|
         @qty += item[:quantity].to_i
+        @quantities << item[:quantity].to_i
         @prod_id << item[:prod_id]
         prod = Product.find(item[:prod_id])
         @items << prod

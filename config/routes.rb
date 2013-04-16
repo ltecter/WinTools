@@ -14,8 +14,8 @@ WinTools::Application.routes.draw do
   match "checkout" => "products#checkout", :via => :get, :as => "checkout"
   match "user_credentials" => "customers#user_credentials", :via => :get, :as => "user_credentials"
   match "create" => "customers#create", :via => :post, :as => "create"
-  match "order" => "products#order", :via => :post, :as => "order"
-  match "confirmation" => "products#confirmation", :via => :post, :as => "confirmation"
+  match "orders/show" => "orders#show", :via => :get, :as => "show_order"
+  match "orders/create" => "orders#create", :via => :get, :as => "create_order"
   
   ActiveAdmin.routes(self)
 

@@ -1,0 +1,56 @@
+<h2>Order For <%= @customer[:fname] %> <%= @customer[:lname] %></h2>
+<table id="order">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td>
+          Subtotal:
+        </td>
+        <td>
+          <%= number_to_currency(@sub_total)%>
+        </td>
+      </tr>
+      <% @taxes.each do |tax| %>
+        <tr>
+          <td>
+            <%= tax[:tax] %>:
+          </td>
+          <td>
+            <%= number_to_currency(tax[:amount]) %>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td>
+          Total: 
+        </td>
+        <td>
+          <%= number_to_currency(@order_total) %>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% @items.each_with_index do |item, index| %>
+        <tr>
+          <td>
+            <%= item[:name]%>            
+          </td>
+          <td>            
+            <%= @quantities[index] %>
+          </td>
+          <td>
+            <%= number_to_currency(@cost[index]) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div id="buttons">
+  <%= button_to "Place Order", create_order_path, :method => :get, :id => "create_order_button" %>
+</div>
