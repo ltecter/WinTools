@@ -2,5 +2,5 @@
   <div>
     <%= pluralize(num_items, 'item')%> (<%= number_to_currency(total) %>) in your cart
   </div>  
-  <%= button_to "Checkout", checkout_path, :method => :get, :id => "checkout_button", :locals => {:cart_items => cart, :cost_per_item => cost, :cart_total => total} %>  
+  <%= button_to "Checkout", checkout_path, :method => :get, :id => "checkout_button" %>  
 </div>

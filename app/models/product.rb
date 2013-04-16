@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   has_many :orders, :through => :line_items
   belongs_to :category
   mount_uploader :image, ImageUploader
+  validates :name, :presence => true
 end

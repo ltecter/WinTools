@@ -5,34 +5,30 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<div id="wrapper">
-  <header>
-    <h1>WinTools</h1>
-    <h3>Reasonably Priced Automotive Tools</h3>
-</header>
-<nav>
-  <%= link_to "Home", root_path %> | 
-  <% @categories.each do |category| %>
-    <%= link_to category.name, products_by_category_path(category.id) %> | 
-  <% end %>
-  <%= link_to 'About Us', "/resources/About_Us" %> | 
-  <%= link_to 'Contact Us', "/resourece/Contact_Us" %>
-</nav>
+</head>  
 <body>
-  <%= render :partial => "products/cart", :locals => { :cart => @items, :cost => @cost, :total => @total, :num_items => @qty } %>
-  <div id="search">
-    <%= render :partial => "/search/search" %>
-  </div>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  
-<%= yield %>
-
+  <div id="wrapper">
+    <header>
+      <h1>WinTools</h1>
+      <h3>Reasonably Priced Automotive Tools</h3>
+    </header>  
+    <nav>
+      <%= link_to "Home", root_path %> 
+      <% @categories.each do |category| %>
+        | <%= link_to category.name, products_by_category_path(category.id) %>
+      <% end %>
+    </nav>
+    <%= render :partial => "products/cart", :locals => { :cart => @items, :cost => @cost, :total => @total, :num_items => @qty } %>
+    <div id="search">
+      <%= render :partial => "/search/search" %>
+    </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <%= yield %>
+    <footer>
+      <h5>Copyright &copy; WinTools Leonard Tecter 2013</h5>
+    </footer>
+  </div>  
 </body>
-<footer>
-  <h5>Copyright &copy; WinTools Leonard Tecter 2013</h5>
-</footer>
-</div>
-
 </html>
